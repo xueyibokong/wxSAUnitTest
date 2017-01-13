@@ -1,0 +1,10 @@
+page{
+    height: 100%;
+    position: relative;
+    overflow: hidden
+}
+map{
+    width:100%;
+    height: calc(100% + 70px);
+    margin-top:-35px;
+}
