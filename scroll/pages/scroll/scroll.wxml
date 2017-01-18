@@ -1,0 +1,10 @@
+  <!-- 
+    监听用户对页面（page）的上拉、下拉动作
+    
+    适合做 上拉加载 、 下拉刷新
+     -->
+  <view wx:for="{{list}}">
+      <view style="height:300px;">
+        {{item.text}}
+      </view>
+  </view>

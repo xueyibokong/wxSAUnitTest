@@ -1,15 +1,13 @@
 {
   "pages":[
-    "pages/map/map"
+    
+    "pages/touchcanvas/touchcanvas",
+    "pages/canvas/canvas"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "CANVAS",
     "navigationBarTextStyle":"black"
-  },
-  "networkTimeout": {
-    "request": 10000,
-    "downloadFile": 10000
   }
 }

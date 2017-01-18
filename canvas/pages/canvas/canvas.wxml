@@ -1,0 +1,4 @@
+<!-- canvas.wxml -->
+<canvas style="width: 100%; height: 200px;" canvas-id="firstCanvas"></canvas>
+
+<canvas style="width: 100%; height: 200px;" canvas-id="secondCanvas"></canvas>

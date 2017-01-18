@@ -1,2 +1,2 @@
 <!-- map.wxml -->
-<map id="map" scale="14" controls="{{controls}}" markers="{{markers}}" bindcontroltap="controltap" show-location></map>
+<map id="map" scale="12" show-location circles="{{circles}}" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" bindregionchange="regionchange"></map>

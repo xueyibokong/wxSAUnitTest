@@ -1,108 +1,132 @@
 // map.js
 var app = getApp();
-import {GPS} from "../../GPS";
-import {FUN} from "../../FUN";
-console.log(GPS);
-console.log(FUN);
+var API = require('../../common/API');
+var  selfLatitude = 39.93056,selfLongitude = 116.4355;
 Page({
-  onLoad : function(e){
-      var self = this; 
-      wx.getLocation({
-        type: 'gcj02', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
-        success: function(res){
-          // success
-          var p = GPS.bd_encrypt(res.latitude,res.longitude);
-          p = FUN.gpsSub(p.lat,p.lon);
-          //数据请求
-          wx.request({
-            url: "http://wxit.test.bank.ecitic.com/MsmbV3/rest/framework/smapp/31",
-            data: {
-                "CPLAT"       : p.lat,
-                "CPLNG"       : p.lon,
-                "QUERYSCOPE"  : "1500",
-                "h5_dc"       : "BANKQUERY_ON"
-            },
-            method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-            // header: {}, // 设置请求的 header
-            success: function(res){
-              var list = res.data.data.data.resultlist;
-              var cMarkers = [];
-              list.forEach(function(item,index,arr){
-               cMarkers.push({
-                  iconPath: "/image/axye_marker.png",
-                  id: index,
-                  latitude: Number(item.BRANCHLAT),
-                  longitude: Number(item.BRANCHLNG),
-                  width: 19,
-                  height: 25
-               })
-              })
-              console.log(cMarkers)
-              self.setData({
-                markers : cMarkers
-              })
-            },
-            fail: function() {
-              // fail
-            },
-            complete: function() {
-              // complete
-            }
-          })
-        },
-        fail: function() {
-          // fail
-          wx.showModal({
-            title: '提示',
-            content: '定位失败',
-            success: function(res) {
-              
-            }
-          })
-        },
-        complete: function() {
-          // complete
-        }
-      })
-  },
   data: {
-    markers: [{
-      iconPath: "/image/axye_marker.png",
-      id: 0,
-      latitude: 39.915174,
-      longitude: 116.403905,
-      width: 19,
-      height: 25
-    }],
     controls: [{
       id: 1,
-      iconPath: '/image/location.png',
+      iconPath: '/image/localtion.png',
       position: {
-        left: 0,
-        top: 300 - 50,
-        width: 50,
-        height: 50
+        left: 15,
+        top:app.globalData.systemInfo.windowHeight - 15,
+        width: 35,
+        height: 35
+      },
+      clickable: true
+    },{
+      id: 1,
+      iconPath: '/image/myLocaltion.png',
+      position: {
+        left: app.globalData.systemInfo.windowWidth/2 -18,
+        top:app.globalData.systemInfo.windowHeight/2+18,
+        width: 35,
+        height: 35
       },
       clickable: true
     }]
   },
-  controltap(e) {
-    console.log(e.controlId)
-    if(e.controlId == 1){
-      this.moveToLocation();
+  regionchange(e) {
+    var self = this;
+    if(e.type == "end"){
+      self.mapCtx.getCenterLocation({
+        success: function(res){
+              try{
+                 self.getData(res);
+              }catch(e){
+                 self.mideData(res);
+              }
+        }
+      })
     }
   },
-  onReady : function(e){
-      this.moveToLocation();
-  },
-  regionchange(e) {
-    console.log(e.type)
-  },
   markertap(e) {
-    console.log(e.markerId)
+    console.log(e)
   },
-  moveToLocation() {
-    this.mapC = wx.createMapContext("map");
-    this.mapC.moveToLocation();
+  controltap(e) {
+    var self = this;
+    switch(e.controlId){
+        case 1: 
+        self.moveLocation();
+        break;
+    }
+  },
+  onLoad : function(ops){
+    var self = this;
+    self.mapCtx = wx.createMapContext("map");
+  }, 
+  moveLocation : function(){
+    // 使用 wx.createMapContext 获取 map 上下文 
+    this.mapCtx.moveToLocation();
+  },
+  onReady : function(){
+    var self = this;
+    setTimeout(function(){
+      self.mapCtx.moveToLocation();
+    },1000) 
+  },
+
+  //数据来源
+  mideData : function(res){
+    selfLatitude = res.latitude;
+    selfLongitude = res.longitude;
+    var markers = [];
+    var num = Math.floor(10*Math.random());
+    if(num < 3){
+      num = 3;
+    }
+    for(let i = 0;i < num; i++){
+      var item = {
+          iconPath: "/image/axye_marker.png",
+          id: 4,
+          width: 19,
+          height: 25
+      }
+      if(i%2 == 0){
+        item.latitude = selfLatitude + Math.random()/100;
+        item.longitude = selfLongitude + Math.random()/100;
+      }else{
+        item.latitude = selfLatitude - Math.random()/100;
+        item.longitude = selfLongitude - Math.random()/100;
+      }
+      markers.push(item);
+    }
+    self.setData({
+      markers : markers
+    });
+  },
+  getData : function(e){
+    selfLatitude = String(e.latitude);
+    selfLongitude = String(e.longitude);
+    console.log(selfLatitude,selfLongitude)
+    var self = this; 
+    var markers = [];
+    var outitem = {
+        iconPath: "/image/axye_marker.png",
+        id: 4,
+        width: 19,
+        height: 25
+    }
+    API.request({
+        url: "http://wxit.test.bank.ecitic.com/MsmbV3/rest/framework/smapp/31",
+        method : "POST",
+        "CPLAT" : selfLatitude.slice(0,selfLatitude.indexOf(".")+5),
+        "CPLNG" : selfLongitude.slice(0,selfLongitude.indexOf(".")+5),
+        "QUERYSCOPE" : "3500",
+        "h5_dc" : "BANKQUERY_ON"
+    }).then(function(res){
+        // success
+        res.data.data.data.resultlist.forEach(function(item,index,arr){
+            item = Object.assign(outitem,item);
+            item.latitude = Number(item.BRANCHLAT);
+            item.longitude = Number(item.BRANCHLNG);
+            markers.push(item);
+        })
+        self.setData({
+          markers : markers
+        });
+    },function(){
+
+    })
   }
 })

@@ -1,0 +1,8 @@
+/* pages/touchcanvas/touchcanvas.wxss */
+page{
+    background-color: #efefef;
+}
+canvas{
+    margin-top: 15rpx;
+    background-color: #fff
+}

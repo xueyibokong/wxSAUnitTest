@@ -1,0 +1,2 @@
+<!--pages/touchcanvas/touchcanvas.wxml-->
+<canvas style="width: {{cWidth}}px; height: {{cHeight}}px;" canvas-id="mycanvas"></canvas>

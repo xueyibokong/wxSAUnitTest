@@ -1,0 +1,17 @@
+﻿{
+  "pages":[
+    "pages/scrolltest/scrolltest",
+    "pages/scroll/scroll"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#d81e06",
+    "navigationBarTitleText": "这个很有意思",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh":true
+  },
+  "networkTimeout": {
+    "request": 10000
+  },
+  "debug":true
+}

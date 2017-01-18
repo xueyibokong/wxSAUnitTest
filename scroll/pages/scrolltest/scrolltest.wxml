@@ -1,0 +1,14 @@
+<!-- 
+    scroll-view 监听滚动条位置顶部/底部都会触发事件
+    但是当处于scroll顶部或者底部再像同方向华东不会出发事件
+
+    适合做 向上的瀑布流 、 向下的瀑布流
+     -->
+<scroll-view scroll-y="true" upper-threshold="0"
+lower-threshold="0" bindscrolltolower="lower" bindscrolltoupper="upper">
+      <view wx:for="{{list}}">
+          <view style="height:300px;">
+            {{item.text}}
+          </view>
+      </view>
+</scroll-view>
