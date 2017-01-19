@@ -1,0 +1,20 @@
+<!-- 背景 -->
+<view class="page" style="width:{{w}}px;height:{{h}}px">
+    <image class="backimage" src="http://public.flydiv.com/_sa/image/1.png"></image>
+    <view class="pagebox" style="width:{{width}}px;height:{{height}}px;margin-left:{{marginL}}px;margin-top:{{marginT}}px;top:{{y}}rpx;left: {{x}}rpx;">
+    </view>
+    <view class="pagebox2" style="width:{{width}}px;height:{{height}}px;margin-left:{{marginL}}px;margin-top:{{marginT}}px;top:{{y1}}rpx;left: {{x1}}rpx;"> 
+    </view>
+</view>
+<!-- 正文 -->
+<view class="content">
+    <view class="logo">
+        <image src="../../images/4.png"></image>
+    </view>
+    <view class="title">中信银行|CITICBANK</view>
+    <view class="inputbox">
+        <input class="user" type="number" placeholder="请输入用户名" placeholder-class="placeholder"/>
+        <input  class="pass" password type="text" placeholder="请输入密码" placeholder-class="placeholder"/>
+        <view class="login">登  录</view>
+    </view>
+</view>

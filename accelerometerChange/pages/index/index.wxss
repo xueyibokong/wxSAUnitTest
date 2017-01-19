@@ -1,0 +1,92 @@
+/* -背景- */
+.page{
+  position: relative;
+  overflow: hidden;
+  background-color: #326696
+}
+.backimage{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  opacity: .35
+}
+.pagebox{
+  transition:all .2s linear;
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  z-index: 10;
+  background-image: url(http://public.flydiv.com/_sa/image/3.png);
+  background-size: 100% 100%;
+  opacity: .5
+}
+.pagebox2{
+  transition:all .2s linear;
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  z-index: 12;
+  background-image: url(http://public.flydiv.com/_sa/image/2.png);
+  background-size: 100% 100%; 
+  opacity: .7
+}
+/* -内容- */
+.content{
+  position: absolute;
+  z-index: 100;/* -临界值【100】- */
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.logo{
+  width: 106px;
+  height: 106px;
+  margin:68px auto;
+  margin-bottom: 23px;
+}
+.logo image{
+  width: 100%;
+  height: 100%
+}
+.title{
+  text-align: center;
+  font-size: 21px;
+  color: #fff
+}
+.inputbox{
+  margin-top:45px;
+}
+.user,.pass,input{
+  display: block;
+  width: 65%;
+  height: 38px;
+  margin:0 auto;
+  padding:10rpx;
+  border-bottom:1rpx solid #ec0606;
+  color:#326696;
+}
+.placeholder{
+  color:#ababab;
+}
+.login{
+  position: absolute;
+  bottom: 120rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 38px;
+  padding:10rpx;
+  border-bottom:1rpx solid #ec0606;
+  color:#ec0606;
+  text-align: center;
+  line-height: 38px;
+  transition: all .2s linear
+}
+.login:active{
+  border: none;
+  background: rgba(236,6,6,0.4);
+  color:#fff;
+}
