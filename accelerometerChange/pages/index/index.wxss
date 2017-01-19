@@ -53,7 +53,7 @@
 }
 .title{
   text-align: center;
-  font-size: 21px;
+  font-size: 19px;
   color: #fff
 }
 .inputbox{

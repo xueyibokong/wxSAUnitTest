@@ -11,7 +11,7 @@
     <view class="logo">
         <image src="../../images/4.png"></image>
     </view>
-    <view class="title">中信银行|CITICBANK</view>
+    <view class="title">中信银行 | CITICBANK</view>
     <view class="inputbox">
         <input class="user" type="number" placeholder="请输入用户名" placeholder-class="placeholder"/>
         <input  class="pass" password type="text" placeholder="请输入密码" placeholder-class="placeholder"/>

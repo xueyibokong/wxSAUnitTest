@@ -38,7 +38,11 @@ Page({
         //console.log(res.x.toFixed(2),res.y.toFixed(2))
     })
   },
-  onHide : function(){
-    
+  onShareAppMessage: function () {
+    return {
+      title: 'LOGIN',
+      desc: '重力感应作为背景技术支持',
+      path: '/pages/index/index'
+    }
   }
 })
