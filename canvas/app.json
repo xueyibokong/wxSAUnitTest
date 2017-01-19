@@ -1,6 +1,5 @@
 {
   "pages":[
-    
     "pages/touchcanvas/touchcanvas",
     "pages/canvas/canvas"
   ],

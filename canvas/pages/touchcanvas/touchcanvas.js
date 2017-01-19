@@ -1,4 +1,5 @@
 const app = getApp();
+console.log(document)
 const winW = app.globalData.systemnfo.windowWidth
 import dragLine from '../../charts/line'
 Page({
@@ -13,4 +14,12 @@ Page({
     });
   },
   dragLine : dragLine
+  ,
+  onShareAppMessage: function () {
+    return {
+      title: 'chart_line',
+      desc: '用于呈现折现数据的图标',
+      path: '/pages/touchcanvas/touchcanvas'
+    }
+  }
 })
