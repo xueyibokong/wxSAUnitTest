@@ -1,12 +1,13 @@
-﻿{
+{
   "pages":[
-    "pages/scrolltest/scrolltest",
-    "pages/scroll/scroll"
+    "pages/scroll/scroll",
+    "pages/scrolltest/scrolltest"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#d81e06",
-    "navigationBarTitleText": "这个很有意思",
+    "navigationBarTitleText": "上拉加载下拉刷新",
     "navigationBarTextStyle":"white",
     "enablePullDownRefresh":true
   },
