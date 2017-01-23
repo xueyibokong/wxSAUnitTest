@@ -1,12 +1,11 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/shadow/shadow"
+    "pages/index/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "重力感应",
+    "navigationBarTitleText": "SAY HELLO",
     "navigationBarTextStyle":"black"
   }
 }

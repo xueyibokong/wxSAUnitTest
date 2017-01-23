@@ -1,11 +1,15 @@
 <!-- canvas.wxml -->
 
 <template name="firstT">
-    <canvas style="width: 100%; height: 200px;" canvas-id="firstCanvas"></canvas>
+    <canvas style="width: {{cWidth}}px; height: {{cHeight}}px;" canvas-id="firstCanvas"></canvas>
 </template>
 
 
 <template name="secondT">
-    <canvas style="width: 100%; height: 200px;" canvas-id="secondCanvas"></canvas>
+    <canvas style="width: {{cWidth}}px; height: {{cHeight}}px;" canvas-id="secondCanvas"></canvas>
 </template>
 
+<!-- 自引用 -->
+<import src="../canvas/canvas.wxml"/>
+<template is="firstT" data="{{cWidth:cWidth,cHeight:cHeight}}"/>
+<template is="secondT" data="{{cWidth:cWidth,cHeight:cHeight}}"/>

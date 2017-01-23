@@ -1,5 +1,6 @@
 export default function dragLine (canvasid,ops){
     const self = this;
+    const ctx = wx.createCanvasContext(canvasid)
     const margin = 25,startY = self.data.cHeight-margin,endX = self.data.cWidth - margin
     const lenX = ops.xAxis.length,lenY = ops.yAxis.length
     let startX = margin
@@ -16,10 +17,8 @@ export default function dragLine (canvasid,ops){
     setMaxY(1)
     startX = margin+(5*String(maxY).length)
     const marginX = (self.data.cWidth-startX-margin)/(lenX-1),marginY = (self.data.cHeight-margin*2)/(lenY-1)
-    const ctx = wx.createCanvasContext(canvasid)
     const fontsize = 12,lineheight = fontsize/3,textalign = fontsize/4
     let pointlist = [];
-
     //样式
     ctx.setStrokeStyle('black')
     ctx.setLineWidth(1)
@@ -62,7 +61,6 @@ export default function dragLine (canvasid,ops){
     })
     //折线
     let scaleY = (self.data.cHeight-margin*2)/maxY
-    console.log(scaleY)
     _linesegment(()=>{
         ctx.setStrokeStyle('red')
         sX = startX
@@ -70,13 +68,12 @@ export default function dragLine (canvasid,ops){
             ctx.lineTo(sX,startY-item*scaleY)
             sX += marginX
         })
-        console.log(1)
     },()=>{
         ctx.lineTo(endX,startY)
+        ctx.lineTo(startX,startY);
         ctx.closePath()
         ctx.setFillStyle('rgba(109,214,32,.2)') 
         ctx.fill()  
-        console.log(2)
     }) 
     //绘制作
     ctx.draw() 

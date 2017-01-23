@@ -4,7 +4,6 @@ export default {
 //原型拓展
 export function addProto(){
     Array.prototype.maxValue = function () {
-        console.log(this)
         return Math.max.apply({},this)
     }
 }

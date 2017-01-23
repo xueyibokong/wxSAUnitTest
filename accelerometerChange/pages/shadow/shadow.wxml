@@ -1,0 +1,10 @@
+<view class='content'>
+    <view class="list">
+        <view bindtouchstart="touchS" bindtouchend="touchE" class="item" wx:for="{{list}}" id="{{index}}">
+            {{item.name}}
+            <view class="msg" style="bottom:{{item.bottom}}px;">
+                {{item.msg}}
+            </view>
+        </view>
+    </view>
+</view>

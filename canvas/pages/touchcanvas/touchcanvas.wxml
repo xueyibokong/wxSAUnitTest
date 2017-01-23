@@ -1,5 +1,5 @@
 <!--pages/touchcanvas/touchcanvas.wxml-->
 <canvas style="width: {{cWidth}}px; height: {{cHeight}}px;" canvas-id="mycanvas"></canvas>
 <import src="../canvas/canvas.wxml"/>
-<template is="firstT"/>
-<template is="secondT"/>
+<template is="firstT" data="{{cWidth:cWidth,cHeight:cHeight}}"/>
+<template is="secondT" data="{{cWidth:cWidth,cHeight:cHeight}}"/>

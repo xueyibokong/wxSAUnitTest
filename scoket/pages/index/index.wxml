@@ -1,0 +1,20 @@
+<view id="maininpitbox">
+    <input id="maininpit" type="text" bindconfirm="send" bindinput="input" value="{{thevalue}}"/>
+    <view class="sendbtn" bindtap="send">
+        send
+    </view>
+</view>
+
+<view class="content">
+    <!-- 群消息[包括我的消息] -->
+    <block wx:for="{{msglist}}">
+        <view class="msgbox {{item.avatarUrl==userInfo.avatarUrl?'mymsg':''}}">
+            <view class="portrait">
+                <image src="{{item.avatarUrl}}"></image>
+            </view>
+            <view class="msg">
+                {{item.content}}
+            </view>
+        </view>
+    </block>
+</view>

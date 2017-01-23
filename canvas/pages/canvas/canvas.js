@@ -6,6 +6,10 @@ wx.getSystemInfo({
   }
 })
 Page({
+  data : {
+    cWidth : "100%",
+    cHeight : 200
+  },
   canvasIdErrorCallback: function (e) {
     console.error(e.detail.errMsg)
   },

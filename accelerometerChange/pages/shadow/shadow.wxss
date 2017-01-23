@@ -1,0 +1,33 @@
+/* pages/shadow/shadow.wxss */
+.list{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around
+}
+.item{
+    min-width: 125px;
+    flex: 1;
+    height: 89px;
+    text-align:center;
+    margin:30rpx;
+    border:1rpx solid #ccc;
+    border-radius:15rpx;
+    line-height:89px;
+    position: relative;
+    overflow: hidden;
+    transition:all .2s linear;
+}
+.msg{
+    position: absolute;
+    left: 0;
+    bottom: -35px;
+    width: 100%;
+    height: 35px;
+    background: rgba(0,0,0,.3);
+    line-height: 35px;
+    font-size: 13px;
+    color:#fff;
+    transition:all .2s linear;
+}
