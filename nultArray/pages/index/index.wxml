@@ -1,0 +1,17 @@
+<block wx:for="{{list}}">
+    <view data-i="{{index}}" bindtap="getI">
+        <view style="margin:15rpx;color:red;">{{item.title}}</view>
+        <block wx:for="{{item.innerL}}">
+            <view data-index="{{index}}" bindtap="choose">
+                {{item.text}}
+                <image style ="width:15px;height:15px;display:{{item.choosed?'inline-block':'none'}}" src="../../image/localtion.png"></image>
+            </view>
+        </block>
+    </view>
+</block>
+
+<view style="margin:15rpx;"> 所选择项 </view>
+
+<view>
+    {{chooseL}}
+</view>
