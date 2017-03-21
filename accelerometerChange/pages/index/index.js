@@ -21,7 +21,6 @@ Page({
   onLoad : function(){
     const self = this;
     const speed = 50;
-    
     wx.onAccelerometerChange(function(res){
         //x轴手机以左边为边垂直于地面为（-1），向反则为（1）；
         // console.log(res.x)
@@ -43,6 +42,16 @@ Page({
       title: 'LOGIN',
       desc: '重力感应作为背景技术支持',
       path: '/pages/index/index'
+    }
+  },
+  usernameblur : function(e){
+    if(e.detail.value.length < 6){
+      wx.selfModal.showToast("用户名不得小于6位")
+    }
+  },
+  passblur : function(e){
+    if(e.detail.value.length < 6){
+      wx.selfModal.showToast("密码不得小于6位")
     }
   }
 })

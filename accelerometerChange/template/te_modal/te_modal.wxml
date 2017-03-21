@@ -1,0 +1,4 @@
+<view class="toast {{show?'toast-show':'toast-hide'}}">
+    {{text}}
+    <view class="toast-clonebtn" bindtap="hideToast"></view>
+</view>

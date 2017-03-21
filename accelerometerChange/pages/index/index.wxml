@@ -1,3 +1,6 @@
+<!-- 模态窗 -->
+<include src="../../template/te_modal/te_modal.wxml"/>
+
 <!-- 背景 -->
 <view class="page" style="width:{{w}}px;height:{{h}}px">
     <image class="backimage" src="http://public.flydiv.com/_sa/image/1.png"></image>
@@ -13,8 +16,8 @@
     </view>
     <view class="title">中信银行 | CITICBANK</view>
     <view class="inputbox">
-        <input class="user" type="number" placeholder="请输入用户名" placeholder-class="placeholder"/>
-        <input  class="pass" password type="text" placeholder="请输入密码" placeholder-class="placeholder"/>
+        <input class="user" type="number" placeholder="请输入用户名" maxlength="16" placeholder-class="placeholder" bindblur="usernameblur"/>
+        <input  class="pass" password type="text" placeholder="请输入密码" maxlength="16" placeholder-class="placeholder" bindblur="passblur"/>
         <view class="login">登  录</view>
     </view>
 </view>
