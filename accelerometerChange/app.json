@@ -1,7 +1,6 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/shadow/shadow"
+    "pages/index/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -33,7 +33,7 @@
     transform: translateY(0);
 }
 .toast-hide{
-    transform: translateY(-100%);
+    transform: translateY(calc(-100% - 2px));
 }
 .toast-clonebtn{
     width: 13px;
